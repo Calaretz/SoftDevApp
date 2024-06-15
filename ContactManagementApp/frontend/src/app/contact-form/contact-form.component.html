@@ -1,0 +1,36 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" class="form-control" required ngModel>
+      <div *ngIf="contactForm.controls.name.invalid && (contactForm.controls.name.dirty || contactForm.controls.name.touched)"
+           class="alert alert-danger">
+        <div *ngIf="contactForm.controls.name.errors.required">
+          Name is required.
+        </div>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" class="form-control" required email ngModel>
+      <div *ngIf="contactForm.controls.email.invalid && (contactForm.controls.email.dirty || contactForm.controls.email.touched)"
+           class="alert alert-danger">
+        <div *ngIf="contactForm.controls.email.errors.required">
+          Email is required.
+        </div>
+        <div *ngIf="contactForm.controls.email.errors.email">
+          Invalid email format.
+        </div>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" class="form-control" ngModel>
+    </div>
+  
+    <!-- Add other fields for contact information -->
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
