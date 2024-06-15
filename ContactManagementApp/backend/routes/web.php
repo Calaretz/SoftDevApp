@@ -2,18 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthManager;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactsController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,11 +15,16 @@ Route::get('/registration', [AuthManager::class, 'registration'])->name('registr
 Route::post('/registration', [AuthManager::class, 'registrationPost'])->name('registration.post');
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 
-Route::group(['middleware' => 'auth'], function (){
-    Route::get('/profile', function (){
-        return "Hi";
-    });
-    
-    // Contacts resource route
+// Protected routes
+Route::middleware('auth')->group(function () {
+    // Profile route
+    Route::get('/profile', function () {
+        return "Hi, this is your profile page";
+    })->name('profile');
+
+    // Route for updating user profile
+    Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
+
+    // Contacts resource routes
     Route::resource('contacts', ContactsController::class);
 });
