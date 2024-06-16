@@ -159,6 +159,11 @@ Contact: Represents a contact with attributes that may include name, email, phon
 Contact Form Component: Develop the contact form component for creating and editing contacts.
 Form Validation: Implement form validation for contact inputs.
 
+## (Rimawi) : Frontend
+
+Frontend Setup: Initialize the Angular project and configure the routing.
+Initial Components: Create basic Angular components for login and contact list.
+
 
 
 ### Contact
