@@ -122,6 +122,45 @@ frontend/
 5. Push to the branch (git push origin feature-branch).
 6. Open a pull request.
 
+### Summary of project contributions
+
+## (Fares) : Backend
+
+## User Authentication:
+
+Basic authentication functionality has been implemented, including:
+Registration of new users (register endpoint).
+User login (login endpoint).
+User logout (logout endpoint).
+These endpoints handle user authentication using basic mechanisms like username/password.
+
+## Database Migrations:
+
+Database migrations have been set up for the following tables:
+users: Stores user information such as username, email, and password hashes.
+contacts: Stores information about contacts, likely linked to users through foreign keys.
+
+## API Endpoints:
+
+Routes and controllers have been configured for CRUD operations related to contacts.
+The CRUD operations typically include:
+Creating new contacts (POST /contacts).
+Retrieving contacts (GET /contacts or GET /contacts/{id}).
+Updating existing contacts (PUT /contacts/{id} or PATCH /contacts/{id}).
+Deleting contacts (DELETE /contacts/{id}).
+
+## Model Setup:
+
+User: Represents a user with attributes like username, email, and password.
+Contact: Represents a contact with attributes that may include name, email, phone number, etc.
+
+## (Fares) : Frontend 
+
+Contact Form Component: Develop the contact form component for creating and editing contacts.
+Form Validation: Implement form validation for contact inputs.
+
+
+
 ### Contact
 Fares: faresibrahim10@gmail.com
 
