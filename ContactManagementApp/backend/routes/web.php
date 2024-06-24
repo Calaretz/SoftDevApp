@@ -14,6 +14,14 @@ Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
 Route::get('/registration', [AuthManager::class, 'registration'])->name('registration');
 Route::post('/registration', [AuthManager::class, 'registrationPost'])->name('registration.post');
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
+Route::get('/{any}', function () {
+    return view('index');
+})->where('any', '.*');
+Route::get('/{any}', function () {
+    return view('index');
+})->where('any', '.*');
+
+
 
 // Protected routes
 Route::middleware('auth')->group(function () {

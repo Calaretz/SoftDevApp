@@ -1,1 +1,9 @@
-<p>contact-list works!</p>
+<h2>Contact List</h2>
+<a routerLink="/add-contact">Add Contact</a>
+<ul>
+  <li *ngFor="let contact of contacts">
+    {{ contact.name }} - {{ contact.email }} - {{ contact.phone }}
+    <a [routerLink]="['/edit-contact', contact.id]">Edit</a>
+    <button (click)="deleteContact(contact.id)">Delete</button>
+  </li>
+</ul>
